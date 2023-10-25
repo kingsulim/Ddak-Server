@@ -1,5 +1,6 @@
 package com.sulim.ddak.domain.request;
 
+import com.sulim.ddak.domain.user.type.RequestType;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -24,13 +25,13 @@ public class Request {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "request_type", length = 15, nullable = false)
-    private String requestType;
+    private RequestType requestType;
 
     @Column(name = "deadline", nullable = false)
     private LocalDateTime deadline;
 
     @Builder
-    public Request(Long ogId, String requestType, LocalDateTime deadline) {
+    public Request(Long ogId, RequestType requestType, LocalDateTime deadline) {
         this.ogId = ogId;
         this.requestType = requestType;
         this.deadline = deadline;
